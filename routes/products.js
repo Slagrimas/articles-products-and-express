@@ -4,7 +4,8 @@ const router = express.Router();
 
 const Products = require('../db/products.js');
 const DB_Products = new Products();
-
+// console.log('Products', Products);
+// console.log('DB_Products', DB_Products);
 
 //get to products index
 router.get('/', (req, res) => {
@@ -16,34 +17,33 @@ router.get('/', (req, res) => {
     res.render('index', { newProductPage })
   }
 })
-
 //get to new products form
 router.get('/new', (req, res) => {
   console.log('lets add a product shall we?')
   const addProduct = true;
   res.render('form', { addProduct })
 })
-
+//detailed view
+router.get('/:id', (req, res) => {
+  const id = req.params.id;
+  const holder = DB_Products.getProductById(id);
+  console.log('holder', holder)
+  res.render('product', holder);
+})
 
 //post new product
 router.post('/new', (req, res) => {
   console.log('new product is posted')
   const newProd = req.body
+  console.log('POOOOOOOOOOOOOOOOO', req.body)
   DB_Products.add(newProd)
-  res.redirect('/')
+  console.log('LLLLLLLLLLLLLL', DB_Products)
+  // res.render('product', DB_Products.add(newProd))
 })
 
-// // get to the deets // NOT WORKING
-// router.get("/:id", (req, res) => {
-// const  id  = req.params;
-// const getDeets = getElementById(name);
-// res.render('products', getDeets);
-// })
-
-//get the router edit form
-router.get('/:id/edit', (req, res) => {
-  
-})
-
-
+router.put('/products', (req, res) => {
+  console.log('Bingo Bango Put')
+  res.render(DB_Products.add(req.body.name, req, res));
+}) 
+ 
 module.exports = router;

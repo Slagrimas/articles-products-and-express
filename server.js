@@ -10,13 +10,14 @@ const productRoutes = require('./routes/products.js');
 const articleRoutes = require('./routes/articles.js');
 
 //Tells Express to use a static directory that we define as the location to look for requests
-app.use(express.static("public"));
+app.use(express.static("views"));
 
 //For parsing application/x-www-form-urlencoded. Returns the already parsed information/object as "req.body".
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('products', productRoutes);
 // app.use('articles', articleRoutes);
+
 //Creates a super simple Express app; basic way to register a Handlebars view engine
 app.engine('.hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }));
 app.set('view engine', '.hbs');
