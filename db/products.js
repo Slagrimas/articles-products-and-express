@@ -24,11 +24,12 @@ class Products {
     return this._productStorage;
   }
 
-  add(product) {
-    product.name = this._count;
-    this._productStorage.push(product);
+  add(Product) {
+    console.log('!!!!!!!!!!!!!', Product)
+    Product.name = this._count;
+    this._productStorage.push(Product);
     this._count++;
-    return product.name;
+    return Product.name;
   }
 
 }

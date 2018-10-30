@@ -40,4 +40,10 @@ router.post('/new', (req, res) => {
 // res.render('products', getDeets);
 // })
 
+//get the router edit form
+router.get('/:id/edit', (req, res) => {
+  
+})
+
+
 module.exports = router;
