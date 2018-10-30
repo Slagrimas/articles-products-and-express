@@ -1,0 +1,36 @@
+<form action="/new" method="POST">
+{{#if addArticle}}
+
+<label>New Article: 
+  <input type="text" name="title" id="">
+</label>
+
+<label>New Author: 
+  <input type="text" name="author" id="">
+</label>
+
+<label>New about me: 
+  <input type="text" name="description" id="">
+</label>
+
+<input type="submit" value="Submit"> {{/if}}
+
+{{#if addProduct}}
+
+<label>New Product Name: 
+  <input type="text" name="name" id="">
+</label>
+
+<label>Price $: 
+  <input type="number" name="price" id="">
+</label>
+
+<label>Inventory: 
+  <input type="number" name="inventory" id="">
+</label>
+
+</form>
+<input type="submit" value="Submit"> {{/if}}
+
+</form>
+<br>{{> footer}}
