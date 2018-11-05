@@ -1,23 +1,19 @@
-{{!-- PRODUCTS -- edit and delete --}} {{#with editProdItem}}
-<form action="/products/{{id}}?_method=PUT" method="post">
+ {{!-- PRODUCTS -- edit and delete --}}
+<form action="/products/{{id}}?_method=PUT" method="POST">
 
   <label>Name:
-    <textarea name="name" id="">{{name}}</textarea>
+    <input type="text" value="{{ name }}" name="name" id=""/>
   </label>
   <label>Price $:
-    <textarea name="price" id="">{{price}}</textarea>
+   <input type="text" value=" {{ price }} " name="price" id=""/>
   </label>
   <label>Inventory:
-    <textarea name="inventory" id="">{{inventory}}</textarea>
+    <input type="text" value=" {{inventory }} " name="inventory" id=""/>
   </label>
   <br>
   <br>
-  <input class="submitBtn" type="submit" value="Submit"> {{/with}}
+  <input class="submitBtn" type="submit" value="Submit">
 </form>
-
-
-{{#with editProdItem}}
 <form action="/products/{{id}}?_method=DELETE" method="post">
   <button class="submitBtn" type="submit">Delete Item</button>
-  {{/with}}
 </form>

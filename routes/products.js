@@ -10,7 +10,7 @@ const DB_Products = new Products();
 //get to products index
 router.get('/', (req, res) => {
   const products = DB_Products.all();
-  if(products.length > 0) {
+  if (products.length > 0) {
     res.render('index', { products })
   } else {
     const newProductPage = true;
@@ -27,7 +27,6 @@ router.get('/new', (req, res) => {
 router.get('/:id', (req, res) => {
   const id = req.params.id;
   const holder = DB_Products.getProductById(id);
-  console.log('holder', holder)
   res.render('product', holder);
 })
 
@@ -35,15 +34,29 @@ router.get('/:id', (req, res) => {
 router.post('/new', (req, res) => {
   console.log('new product is posted')
   const newProd = req.body
-  console.log('POOOOOOOOOOOOOOOOO', req.body)
-  DB_Products.add(newProd)
-  console.log('LLLLLLLLLLLLLL', DB_Products)
-  // res.render('product', DB_Products.add(newProd))
+  const dataBase = DB_Products.add(newProd)
+  res.redirect('/products')
 })
 
-router.put('/products', (req, res) => {
-  console.log('Bingo Bango Put')
-  res.render(DB_Products.add(req.body.name, req, res));
-}) 
- 
+//get to edit
+router.get('/:id/edit', (req, res) => {
+  console.log('its editing time');
+  const { id } = req.params;
+  console.log('this is the id', req.params)
+  const editProd = DB_Products.getProductById(id);
+  console.log('editprod', editProd)
+  res.render('edit', editProd)
+});
+
+router.put('/edit', (req, res) => {
+  const { id } = req.params;
+  console.log('yeeeeeehhhhhhaaaawwwwwww', id)
+  let editProduct = DB_Products.getProductById(id);
+  if (req.body.name !== editProduct.name) {
+    editProduct.name = req.body.name;
+  }
+  res.redirect(`/products/${editProduct.body}`);
+});
+
+
 module.exports = router;

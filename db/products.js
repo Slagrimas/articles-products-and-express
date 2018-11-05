@@ -6,13 +6,13 @@ class Products {
       name: 'toyota tacoma',
       price: 25000,
       inventory: 28
-    }, 
+    },
     {
       id: 2,
       name: 'toyota 4runner',
       price: 35000,
       inventory: 20
-    }, 
+    },
     {
       id: 3,
       name: 'toyota tundra',
@@ -20,27 +20,28 @@ class Products {
       inventory: 4
     }];
   }
-    
-    
-    //Methods
-    all() {
-      return this._productStorage;
-    }
-    
-    getProductById(id) {
-      console.log('!>!>!>!>!>!>!', this._productStorage)
-      return this._productStorage.filter(product => {
-        return parseInt(id) === product.id
-      })[0];
-    } //filter = array method. 
-    
-    add(Product) {
-      // console.log('!!!!!!!!!!!!!', Product)
-      this._productStorage.push(Product);
-      // console.log('AAAAAAAAAAAAAAAAAAAA', this._productStorage);
-      return Product.name;
-    }
-    
+
+
+  //Methods
+  all() {
+    return this._productStorage;
+  }
+
+  getProductById(id) {
+    return this._productStorage.filter(product => {
+      return parseInt(id) === product.id
+    })[0];
+  }
+
+  add(Product) {
+    // console.log('!!!!!!!!!!!!!', Product)
+    this._productStorage.push(Product);
+    // console.log('AAAAAAAAAAAAAAAAAAAA', this._productStorage);
+    return Product.name;
+  }
+  updateProductById(id) {
+    product.id = this._count;
+  }
 }
 
 module.exports = Products;

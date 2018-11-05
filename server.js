@@ -15,7 +15,7 @@ app.use(express.static("views"));
 //For parsing application/x-www-form-urlencoded. Returns the already parsed information/object as "req.body".
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('products', productRoutes);
+app.use('/products', productRoutes);
 // app.use('articles', articleRoutes);
 
 //Creates a super simple Express app; basic way to register a Handlebars view engine
@@ -25,9 +25,9 @@ app.set('view engine', '.hbs');
 //Setup for method-override
 app.use(methodOverride('_method'));
 
-//Using Express router to access products and articles routes
-app.use('/', productRoutes);
-// app.use('/', articleRoutes);
+// //Using Express router to access products and articles routes
+// app.use('/', productRoutes);
+// // app.use('/', articleRoutes);
 
 app.listen(PORT, () => {
   console.log(`Started app on port: ${PORT}`);
