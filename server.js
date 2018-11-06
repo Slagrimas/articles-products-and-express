@@ -1,4 +1,5 @@
 require('dotenv').config();
+console.log('process', process.env.POSTGRES_HOSTNAME)
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
