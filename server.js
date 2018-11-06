@@ -1,10 +1,11 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const exphbs = require('express-handlebars');
 
-const PORT = process.env.PORT || 9002;
+const PORT = process.env.EXPRESS_CONTAINER_PORT;
 
 const productRoutes = require('./routes/products.js');
 const articleRoutes = require('./routes/articles.js');

@@ -1,24 +1,24 @@
 class Products {
   constructor() {
-    this._count = 4;
-    this._productStorage = [{
-      id: 1,
-      name: 'toyota tacoma',
-      price: 25000,
-      inventory: 28
-    },
-    {
-      id: 2,
-      name: 'toyota 4runner',
-      price: 35000,
-      inventory: 20
-    },
-    {
-      id: 3,
-      name: 'toyota tundra',
-      price: 31500,
-      inventory: 4
-    }];
+    // this._count = 4;
+    // this._productStorage = [{
+    //   id: 1,
+    //   name: 'toyota tacoma',
+    //   price: 25000,
+    //   inventory: 28
+    // },
+    // {
+    //   id: 2,
+    //   name: 'toyota 4runner',
+    //   price: 35000,
+    //   inventory: 20
+    // },
+    // {
+    //   id: 3,
+    //   name: 'toyota tundra',
+    //   price: 31500,
+    //   inventory: 4
+    // }];
   }
 
 
